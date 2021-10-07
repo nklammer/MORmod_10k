@@ -13,36 +13,30 @@ This case considers the energy performance of a circa 2016 modular prototype in 
   * Appliance loads???
 
 ## worklow file gives model parameters
-      {
-         "arguments" : 
-         {
-            "__SKIP__" : false,
-            "fuel_type": "gas",
-            "capacity": "40.0",
-            "energy_factor": "0.59",
-            "location": "auto",
-            "setpoint_temp": "125",
-            "tank_volume": "50"
-         },
-         "measure_dir_name" : "ResidentialHotWaterHeaterTank",
-         "name" : "ResidentialHotWaterHeaterTank"
-      },
-         {
-            "__SKIP__" : false,
-            "add_constructions" : true,
-            "add_elevators" : true,
-            "add_exterior_lights" : true,
-            "add_hvac" : true,
-            "add_space_type_loads" : true,
-            "add_swh" : false,
-            "add_thermostat" : true,
-            "hvac_system_type" : "Minisplit Heat Pumps with ERVs",
-            "onsite_parking_fraction" : "0.0",
-            "wall_roof_construction_template" : "Better",
-            "window_construction_template" : "Better"
-         },
-         "measure_dir_name" : "zero_energy_multifamily",
-         "name" : "zero_energy_multifamily"
-      },
+
+* ResidentialHotWaterHeaterTank
+  * Skipped?: False
+  * Fuel type: Natural Gas
+  * Tank Energy Input Capacity: 40 kBtu/hr
+  * Energy Factor (EF): 0.59
+  * Location: auto-locate based on building type and occupancy type
+  * Setpoint temperature: 125 F
+  * Tank Volume: 50 gallons
+  
+* zero_energy_multifamily
+  * Skipped?: False
+  * Add Constructions?: True
+  * Add Elevators?: True
+  * Add Exterior Lights: True
+  * Add HVAC?: True
+  * Add Space Type Loads?: True
+  * Add Service Water Heating?: True
+  * Add Thermostats?: True
+  * HVAC System Type: Minisplit Heat Pumps with ERVs
+  * On-site parking fraction: 0%
+  * Wall/Roof Construction Template: Better
+    * must see `measures/zero_energy_multifamily/resources` for values
+  * Window Construction Template: Better
+    * must see `measures/zero_energy_multifamily/resources` for values
 
 
