@@ -33,7 +33,7 @@ I recommend using the free software, ResultsViewer to view and export `eplusout.
 
 I have also found the PyESO script useful but it is limited to 255 variables which as a number can be easily overstepped with detailed simulations.
 
-I like the measure `d_view_export` measure that takes report variables in the `eplusout.sql` database file and writes them to a `.csv` file with the DView formatting. The DView csv formatting can be found here. Be warned that this pathway is also limited to < 200 variables but has more to do with the character limits of the variable names so beware of long output variable names.
+I like the measure `d_view_export` measure that takes report variables in the `eplusout.sql` database file and writes them to a `.csv` file with the DView formatting. The DView  format adds a header to the raw data (see example in `../tips_dview-data-file-template.pdf`) so the DView data viewer ([download](https://github.com/NREL/wex/releases/tag/v1.2.0)) can view it. Be warned that this pathway is also limited to < 200 variables but has more to do with the character limits of the variable names so beware of long output variable names.
 
 # Command Line Tips
 Always run OpenStudio with Git Bash command `openstudio --verbose run -w path/to/workflow.osw --debug -- measures_only[optional]`. Do not exclude the `run.log` file and `eplusout.rdd` file in the commits.
