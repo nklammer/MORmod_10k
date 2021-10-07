@@ -15,13 +15,13 @@ This project counts on many local changes to published packages (or in Ruby parl
 
 Many of the Measures are clones or derivatives of residential energy modeling code from the NREL `resstock` [repository](https://github.com/NREL/resstock). Learn more about ResStock [project](https://resstock.nrel.gov/) and [Residential Energy Modeling](https://www.nrel.gov/buildings/residential.html).
 
-## openstudio-standards gem
+### [openstudio-standards gem](https://github.com/NREL/openstudio-standards)
 This workflow uses OpenStudio v3.0.1 which has `openstudio-standards-0.2.11` embedded. If one desires to access building performance standards ASHRAE `90.1-2016` or `90.1-2019`, a more recent `openstudio-standards-0.2.XX` will be required available from [rubygems.org](https://rubygems.org/gems/openstudio-standards).
 
 Due to a bug in OpenStudio Command Line Interface, the GEM_PATH path variable needs to be taken out of the environment before running.
 In Git Bash shell command for Windows `$ unset GEM_PATH` and check for presence with bash line `$ env | grep GEM`.
 
-## resstock gem
+### [resstock gem](https://github.com/NREL/resstock)
 
 # EMS
 ## Heat Pump Water Heater
