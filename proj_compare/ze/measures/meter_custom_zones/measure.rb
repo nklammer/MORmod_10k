@@ -80,7 +80,7 @@ class MeterCustomByZones < OpenStudio::Measure::ModelMeasure
     zone_mtd = {}
 
     zone_mtd[:elec] = {}
-    # no key name needed for 'Overall Meter Types' like 'Electricity:Zone'
+    # zone_mtd[:elec][:key] # no key name needed for 'Overall Meter Types' like 'Electricity:Zone'
     zone_mtd[:elec][:var] = "Electricity:Zone:ZONE_KEY"
     # break ---------------------------------------
     zone_mtd[:ashp_clg] = {}
@@ -197,7 +197,7 @@ class MeterCustomByZones < OpenStudio::Measure::ModelMeasure
       if not zone.airLoopHVAC.empty? # line is TRUE for conditioned zones
         runner.registerInfo("In addition to space loads, zone '#{zone.name}' is conditioned with an AirLoopHVAC '#{zone.airLoopHVAC.get.name}'.")
 
-        if true # "the zone is conditioned by ashp and ervs"
+        if true # placeholder "the zone is conditioned by ashp and ervs"
           # an array of keys that go to Output Variable names relevant to ASHP and ERV
           # these Outputs take a Key Name that is the zone name
           var_keys = [:ashp_fan, :ashp_supmtl, :ashp_unit, :erv_supply, :erv_exhaust, :erv_hx]
