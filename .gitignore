@@ -3,6 +3,7 @@
 */*/*/out.osw
 */*/test
 .bundle/install
+.vscode
 Gemfile.lock
 .DS_Store
 */*/out.osw
