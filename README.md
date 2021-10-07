@@ -31,6 +31,10 @@ This specific workflow has an implementation of a heat pump water heater that re
 
 I recommend using the free software, ResultsViewer to view and export `eplusout.eso` files to `.csv` format for analysis. From my experience, there is no limit on the number of variables for ResultsViewer to work. Be aware that the parsing of `eplusout.eso` files gets exponentially slower with more reporting variables, especially at time interval (t <= 1 hour).
 
+I have also found the PyESO script useful but it is limited to 255 variables which as a number can be easily overstepped with detailed simulations.
+
+I like the measure `d_view_export` measure that takes report variables in the `eplusout.sql` database file and writes them to a `.csv` file with the DView formatting. The DView csv formatting can be found here. Be warned that this pathway is also limited to < 200 variables but has more to do with the character limits of the variable names so beware of long output variable names.
+
 # Command Line Tips
 Always run OpenStudio with Git Bash command `openstudio --verbose run -w path/to/workflow.osw --debug -- measures_only[optional]`. Do not exclude the `run.log` file and `eplusout.rdd` file in the commits.
 
