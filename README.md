@@ -31,7 +31,9 @@ This specific workflow has an implementation of a heat pump water heater that re
 
 I recommend using the free software, ResultsViewer to view and export `eplusout.eso` files to `.csv` format for analysis. From my experience, there is no limit on the number of variables for ResultsViewer to work. Be aware that the parsing of `eplusout.eso` files gets exponentially slower with more reporting variables, especially at time interval (t <= 1 hour).
 
-I have also found the PyESO script useful but it is limited to 255 variables which as a number can be easily overstepped with detailed simulations.
+I have also found the Python [`esoreader`](https://github.com/architecture-building-systems/esoreader) project useful in a Python environment.
+
+Standalone releases of EnergyPlus include an executable file `ReadVarsESO.exe` which will take the `eplusout.eso` file and read it to a `.csv` format for a spreadsheet tool like Microsoft Excel. Beware that the limit on the number of variables is 255 because of Microsoft Excel limits but this limit can be overridden by specifying the `unlimited` option. Instructions [here](https://bigladdersoftware.com/epx/docs/8-0/input-output-reference/page-090.html).
 
 I like the measure `d_view_export` measure that takes report variables in the `eplusout.sql` database file and writes them to a `.csv` file with the DView formatting. The DView  format adds a header to the raw data (see example in `../tips_dview-data-file-template.pdf`) so the DView data viewer ([download](https://github.com/NREL/wex/releases/tag/v1.2.0)) can view it. Be warned that this pathway is also limited to < 200 variables but has more to do with the character limits of the variable names so beware of long output variable names.
 
