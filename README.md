@@ -1,5 +1,5 @@
 # 10k
-This repository contains resources and documentation for the building energy modeling portion of the methods of the "10k" technical report (TR). 
+This repository contains resources and documentation for the building energy modeling portion of the methods of the FY 22"10k" technical report (TP-5500-81037). 
 
 for Noah Klammer's 2021 MS thesis at the Univeristy of Colorado "Model Order Reduction for More Modular Buildings: Model-Cluster-Reduce for Modular Multifamily Buildings".
 
