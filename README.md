@@ -34,4 +34,7 @@ I recommend using the free software, ResultsViewer to view and export `eplusout.
 # Command Line Tips
 Always run OpenStudio with Git Bash command `openstudio --verbose run -w path/to/workflow.osw --debug -- measures_only[optional]`. Do not exclude the `run.log` file and `eplusout.rdd` file in the commits.
 
+# EnergyPlus Tips
+If a reporting variable requested in the `in.osm` and `in.idf` files is not a valid EnergyPlus request, the simulation will still run successfully and return `true`. Therefore, it is important that after the simulation has finished, to check the `eplusout.mtd` meta-parameter file and to check the `eplusout.err` messages.
+
 
