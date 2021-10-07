@@ -1,9 +1,5 @@
 # 10k
-This repository contains resources and documentation for the building energy modeling portion of the methods of the FY 22"10k" technical report (TP-5500-81037). 
-
-for Noah Klammer's 2021 MS thesis at the Univeristy of Colorado "Model Order Reduction for More Modular Buildings: Model-Cluster-Reduce for Modular Multifamily Buildings".
-
-This work was inspired by and heavily borrows from previous work done for the publication of the Zero Energy Design Guide for Multifamily buildings. A [related publication](https://www.nrel.gov/docs/fy20osti/77013.pdf) detailing the technical work is available for free.
+This repository contains resources and documentation for the building energy modeling portion of the methods of the FY 22 "10k" technical report (TP-5500-81037). The workflow is forked and edited from Noah Klammer's 2021 MS thesis in the repo `MORmod_mf`. The work was inspired by and heavily borrows from previous work done for the publication of the Zero Energy Design Guide for Multifamily buildings. A [related publication](https://www.nrel.gov/docs/fy20osti/77013.pdf) detailing the technical work is available for free.
 
 
 # VERSIONS
@@ -29,31 +25,13 @@ In Git Bash shell command for Windows `$ unset GEM_PATH` and check for presence 
 
 # EMS
 ## Heat Pump Water Heater
-This specific workflow has an implementation of a heat pump water heater that requires some EnergyPlus Energy Management System (EMS) code.
-Trying to fix EMS error on other branch `dev-report-ideal`.
-`** Severe  ** <root>[EnergyManagementSystem:ProgramCallingManager][res wh_Building Unit 001 ProgramManager][programs][0] - Missing required property 'program_name'.`
-Matt D [commit](https://github.com/NREL/OpenStudio-measures/commit/82086aaa083165d59a704f9696b14a674b8bf27a) causes returns fail.
+This specific workflow has an implementation of a heat pump water heater that requires some EnergyPlus Energy Management System (EMS) code. Be aware that in order for the EMS code to run, certain output variables are "baked in" to the model reporting variables and should not be changed or replaced. The EMS argument mapping changed in > EnergyPlus v9.3.0 and so users may see the `EnergyManagementSystem:ProgramCallingManager` error.
 
-I think the equipment name `"res wh_Building Unit 001"` gets set in `ResidentialHotWaterHeaterHeatPump` or `ResidentialHotWaterFixtures`
+# Viewing Results
 
-Program Version,EnergyPlus, Version 9.3.0-baff08990c, YMD=2021.03.14 22:50,
-   ** Severe  ** <root>[EnergyManagementSystem:ProgramCallingManager][res wh_Building Unit 001 ProgramManager][programs][0] - Missing required property 'program_name'.
-   ** Severe  ** <root>[EnergyManagementSystem:ProgramCallingManager][res wh_Building Unit 001 ProgramManager][programs][1] - Missing required property 'program_name'.
-   **  Fatal  ** Errors occurred on processing input file. Preceding condition(s) cause termination.
-   ...Summary of Errors that led to program termination:
-   ..... Reference severe error count=2
-   ..... Last severe error=<root>[EnergyManagementSystem:ProgramCallingManager][res wh_Building Unit 001 ProgramManager][programs][1] - Missing required property 'program_name'.
-   ************* Warning:  Node connection errors not checked - most system input has not been read (see previous warning).
-   ************* Fatal error -- final processing.  Program exited before simulations began.  See previous error messages.
-   ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
-   ************* EnergyPlus Sizing Error Summary. During Sizing: 0 Warning; 0 Severe Errors.
-   ************* EnergyPlus Terminated--Fatal Error Detected. 0 Warning; 2 Severe Errors; Elapsed Time=00hr 00min  1.32sec
+I recommend using the free software, ResultsViewer to view and export `eplusout.eso` files to `.csv` format for analysis. From my experience, there is no limit on the number of variables for ResultsViewer to work. Be aware that the parsing of `eplusout.eso` files gets exponentially slower with more reporting variables, especially at time interval (t <= 1 hour).
 
-# RESULTS VIEWER
-
-I recommend using the free software, ResultsViewer to view and export `eplusout.eso` files to `.csv` format for analysis.
-
-# DOCUMENTATION
-Always run OpenStudio with Git Bash command `openstudio --verbose run -w path/to/workflow.osw --debug -- measures_only[optional]`. Include the `run.log` file and `eplusout.rdd` file in the commits.
+# Command Line Tips
+Always run OpenStudio with Git Bash command `openstudio --verbose run -w path/to/workflow.osw --debug -- measures_only[optional]`. Do not exclude the `run.log` file and `eplusout.rdd` file in the commits.
 
 
